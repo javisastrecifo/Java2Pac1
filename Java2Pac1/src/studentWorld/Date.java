@@ -4,20 +4,20 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 public class Date {
-private int day;
-private int month;
-private int year;
+private int birthDay;
+private int birthMonth;
+private int birthYear;
 	
-public Date (int d, int m, int y) {
-	this.day = d;
-	this.month = m;
-	this.year = y;
+public Date (int day, int month, int year) {
+	this.birthDay = day;
+	this.birthMonth = month;
+	this.birthYear = year;
 }
 
 public Date (int year) {
-	this.day = 1;
-	this.month = 1;
-	this.year = year;
+	this.birthDay = 1;
+	this.birthMonth = 1;
+	this.birthYear = year;
 }
 
 public int calculateAge() {
@@ -27,11 +27,11 @@ public int calculateAge() {
 	int currentMonth = localTime.get(Calendar.MONTH);
 	int currentYear = localTime.get(Calendar.YEAR);
 	
-	int age = currentYear - this.year;
-	if (currentMonth < this.month) {
+	int age = currentYear - this.birthYear;
+	if (currentMonth < this.birthMonth) {
 		age--;
-	} else if (currentMonth == this.month) {
-		if (currentDay < this.day) {
+	} else if (currentMonth == this.birthMonth) {
+		if (currentDay < this.birthDay) {
 			age--;
 		}
 	}
@@ -39,36 +39,36 @@ public int calculateAge() {
 }
 
 public int getDay() {
-	return day;
+	return birthDay;
 }
 
 public int getMonth() {
-	return month;
+	return birthMonth;
 }
 
 public int getYear() {
-	return year;
+	return birthYear;
 }
 
 @Override
 public String toString() {
-	return this.day + dayTermination(this.day) + " of " + writtenMonth(this.month) + " of " + this.year;
+	return this.birthDay + dayTermination(this.birthDay) + " of " + writtenMonth(this.birthMonth) + " of " + this.birthYear;
 }
 
 public String dayTermination(int number) {
-	if (this.day == 1) {
+	if (this.birthDay == 1) {
 		return "st";
-	} else if (this.day == 2) {
+	} else if (this.birthDay == 2) {
 		return "nd";
-	} else if (this.day == 3) {
+	} else if (this.birthDay == 3) {
 		return "rd";
-	} else if (this.day == 21) {
+	} else if (this.birthDay == 21) {
 		return "st";
-	} else if (this.day == 22) {
+	} else if (this.birthDay == 22) {
 		return "nd";
-	} else if (this.day == 23) {
+	} else if (this.birthDay == 23) {
 		return "rd";
-	} else if (this.day == 31) {
+	} else if (this.birthDay == 31) {
 		return "st";
 	} else {
 		return "th";
@@ -76,29 +76,29 @@ public String dayTermination(int number) {
 }
 
 public String writtenMonth (int number) {
-	if (this.month == 1) {
+	if (this.birthMonth == 1) {
 		return "January";
-	} else if (this.month == 2) {
+	} else if (this.birthMonth == 2) {
 		return "February";
-	} else if (this.month == 3) {
+	} else if (this.birthMonth == 3) {
 		return "March";
-	} else if (this.month == 4) {
+	} else if (this.birthMonth == 4) {
 		return "April";
-	} else if (this.month == 5) {
+	} else if (this.birthMonth == 5) {
 		return "May";
-	} else if (this.month == 6) {
+	} else if (this.birthMonth == 6) {
 		return "June";
-	} else if (this.month == 7) {
+	} else if (this.birthMonth == 7) {
 		return "July";
-	} else if (this.month == 8) {
+	} else if (this.birthMonth == 8) {
 		return "August";
-	} else if (this.month == 9) {
+	} else if (this.birthMonth == 9) {
 		return "September";
-	} else if (this.month == 10) {
+	} else if (this.birthMonth == 10) {
 		return "October";
-	} else if (this.month == 11) {
+	} else if (this.birthMonth == 11) {
 		return "November";
-	} else if (this.month == 12) {
+	} else if (this.birthMonth == 12) {
 		return "December";
 	} else {
 		return "month error";

@@ -1,41 +1,47 @@
 package studentWorld;
 
 public class Student extends Person {
-	private String name;
-	private String surname;
-	private Date dateOfBirth;
-	private int age;
 	private String username;
 	private String password;
+	private double accessMark;
 
-	public Student(String name, String surname, int birthDay, int birthMonth, int birthYear) {
-		this.name = name;
-		this.surname = surname;
-		this.dateOfBirth = new Date(birthDay, birthMonth, birthYear);
-		this.age = this.dateOfBirth.calculateAge();
-		this.username = this.name.toLowerCase() + this.surname.toLowerCase();
-		this.password = this.surname + birthYear;
+	public Student(String name, String surname, int birthDay, int birthMonth, int birthYear, double mark) {
+		super(name, surname, birthDay, birthMonth, birthYear);
+		this.username = super.getName().toLowerCase() + super.getSurname().toLowerCase();
+		this.password = super.getSurname() + birthYear;
+		this.accessMark = mark;
 	}
 	
+	public Student(String name, String surname, int birthYear, double mark) {
+		super(name, surname, birthYear);
+		this.username = super.getName().toLowerCase() + super.getSurname().toLowerCase();
+		this.password = super.getSurname() + birthYear;
+		this.accessMark = mark;
+	}
+
 	@Override
 	public String toString() {
-		return this.name + " " + this.surname + ", with username " + this.username + ", and born on the " + this.dateOfBirth.toString();
+		String answer = super.toString();
+		answer += "Their University access marks were " + this.accessMark + ".";
+		answer += "\nTheir username is '" + this.username + "' and password '" + this.password + "'.";
+		answer += "\n------\n";
+		return answer;
 	}
 
 	public String getName() {
-		return name;
+		return super.getName();
 	}
 
 	public String getSurname() {
-		return surname;
+		return super.getSurname();
 	}
 
 	public Date getDateOfBirth() {
-		return dateOfBirth;
+		return super.getDateOfBirth();
 	}
 
 	public int getAge() {
-		return age;
+		return super.getAge();
 	}
 
 	public String getUsername() {
